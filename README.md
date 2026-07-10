@@ -2,6 +2,7 @@
 
 A premium, full-featured social media platform with a stunning glassmorphism UI, built with the MERN stack.
 
+LIVE DEMO: https://codealpha-socialmediaplatform-fsi1.onrender.com/ 
 ## ✨ Features
 
 - **Authentication** — JWT-based secure auth with bcrypt password hashing
