@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile — SocialSphere</title>
+  <meta name="theme-color" content="#FF7EB6" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/feed.css" />
+</head>
+<body>
+  <!-- ─── Navigation ────────────────────────────────────── -->
+  <nav class="navbar glass" id="navbar">
+    <div class="nav-container">
+      <a href="feed.html" class="nav-brand">
+        <div class="logo-icon">
+          <i class="fas fa-globe"></i>
+        </div>
+        <span class="logo-text">SocialSphere</span>
+      </a>
+
+      <div class="nav-search" id="navSearch">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" placeholder="Search SocialSphere..." id="globalSearchInput" />
+      </div>
+
+      <div class="nav-links">
+        <a href="feed.html" class="nav-link" title="Home">
+          <i class="fas fa-home"></i>
+        </a>
+        <a href="create-post.html" class="nav-link" title="Create Post">
+          <i class="fas fa-plus-square"></i>
+        </a>
+        <a href="explore.html" class="nav-link" title="Explore">
+          <i class="fas fa-compass"></i>
+        </a>
+        <a href="notifications.html" class="nav-link notification-bell" title="Notifications">
+          <i class="fas fa-bell"></i>
+          <span class="badge" id="notifBadge" style="display:none">0</span>
+        </a>
+        <a href="profile.html" class="nav-link nav-avatar-link active" title="Profile">
+          <img src="https://ui-avatars.com/api/?name=User&background=FF7EB6&color=fff&size=32" alt="Profile" class="nav-avatar" id="navAvatar" />
+        </a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="nav-link" id="logoutBtn" title="Logout">
+          <i class="fas fa-sign-out-alt"></i>
+        </button>
+      </div>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
+    <div class="mobile-search" id="mobileSearch">
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="Search..." id="mobileSearchInput" />
+    </div>
+  </nav>
+
+  <!-- ─── Profile Content ───────────────────────────────── -->
+  <div class="profile-container">
+    <!-- Profile Header -->
+    <div class="profile-header glass-card" id="profileHeader">
+      <div class="profile-header-skeleton skeleton-pulse">
+        <div class="skeleton-avatar profile-skeleton-avatar"></div>
+        <div class="skeleton-lines">
+          <div class="skeleton-line w-40"></div>
+          <div class="skeleton-line w-20"></div>
+          <div class="skeleton-line w-60"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile Stats -->
+    <div class="profile-stats glass-card" id="profileStats">
+      <div class="stat">
+        <span class="stat-number" id="statPosts">0</span>
+        <span class="stat-label">Posts</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number" id="statFollowers">0</span>
+        <span class="stat-label">Followers</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number" id="statFollowing">0</span>
+        <span class="stat-label">Following</span>
+      </div>
+    </div>
+
+    <!-- Edit Profile Form -->
+    <div class="edit-profile glass-card" id="editProfileForm" style="display:none">
+      <h3><i class="fas fa-edit"></i> Edit Profile</h3>
+      <form id="editProfileFormInner">
+        <div class="form-group">
+          <label>Profile Picture</label>
+          <div class="edit-avatar-upload">
+            <img src="" alt="Preview" id="editAvatarPreview" />
+            <button type="button" class="btn btn-outline btn-sm" id="changeAvatarBtn">
+              <i class="fas fa-camera"></i> Change Photo
+            </button>
+            <input type="file" id="editAvatarInput" accept="image/*" hidden />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="editName">Name</label>
+          <input type="text" id="editName" maxlength="50" />
+        </div>
+        <div class="form-group">
+          <label for="editUsername">Username</label>
+          <input type="text" id="editUsername" maxlength="30" pattern="[a-zA-Z0-9_]+" />
+        </div>
+        <div class="form-group">
+          <label for="editBio">Bio</label>
+          <textarea id="editBio" maxlength="160" rows="3" placeholder="Tell us about yourself..."></textarea>
+          <span class="char-count"><span id="bioCount">0</span>/160</span>
+        </div>
+        <div class="edit-actions">
+          <button type="submit" class="btn btn-primary" id="saveProfileBtn">
+            <span class="btn-text">Save Changes</span>
+            <div class="spinner-sm" style="display:none"></div>
+          </button>
+          <button type="button" class="btn btn-outline" id="cancelEditBtn">Cancel</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Profile Tabs -->
+    <div class="profile-tabs glass-card">
+      <button class="tab-btn active" data-tab="posts">
+        <i class="fas fa-th"></i> Posts
+      </button>
+      <button class="tab-btn" data-tab="liked">
+        <i class="fas fa-heart"></i> Liked
+      </button>
+      <button class="tab-btn" data-tab="edit" id="editProfileTabBtn">
+        <i class="fas fa-cog"></i> Edit Profile
+      </button>
+    </div>
+
+    <!-- Tab Content: Posts -->
+    <div id="tabPosts" class="tab-content active">
+      <div class="profile-posts" id="profilePosts">
+        <!-- Skeletons -->
+        <div class="post-skeleton skeleton-pulse">
+          <div class="skeleton-header">
+            <div class="skeleton-avatar"></div>
+            <div class="skeleton-lines">
+              <div class="skeleton-line w-40"></div>
+              <div class="skeleton-line w-20"></div>
+            </div>
+          </div>
+          <div class="skeleton-image"></div>
+          <div class="skeleton-lines">
+            <div class="skeleton-line w-60"></div>
+            <div class="skeleton-line w-80"></div>
+          </div>
+        </div>
+      </div>
+      <div id="noProfilePosts" class="empty-state" style="display:none">
+        <div class="empty-icon"><i class="fas fa-camera"></i></div>
+        <h3>No Posts Yet</h3>
+        <p>Your posts will appear here.</p>
+      </div>
+    </div>
+
+    <!-- Tab Content: Liked Posts -->
+    <div id="tabLiked" class="tab-content">
+      <div class="profile-posts" id="likedPosts"></div>
+      <div id="noLikedPosts" class="empty-state" style="display:none">
+        <div class="empty-icon"><i class="fas fa-heart"></i></div>
+        <h3>No Liked Posts</h3>
+        <p>Posts you like will appear here.</p>
+      </div>
+    </div>
+
+    <div id="profileLoader" class="feed-loader" style="display:none">
+      <div class="spinner"></div>
+      <span>Loading...</span>
+    </div>
+  </div>
+
+  <!-- ─── Toast Container ────────────────────────────────── -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

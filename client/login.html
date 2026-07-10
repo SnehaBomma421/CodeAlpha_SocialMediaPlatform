@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In — SocialSphere</title>
+  <meta name="theme-color" content="#FF7EB6" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body>
+  <div class="auth-container">
+    <!-- Background decoration -->
+    <div class="auth-bg">
+      <div class="auth-circle auth-circle-1"></div>
+      <div class="auth-circle auth-circle-2"></div>
+      <div class="auth-circle auth-circle-3"></div>
+    </div>
+
+    <div class="auth-card glass-card">
+      <!-- Brand -->
+      <a href="index.html" class="auth-brand">
+        <div class="logo-icon">
+          <i class="fas fa-globe"></i>
+        </div>
+        <span class="logo-text">SocialSphere</span>
+      </a>
+
+      <h1 class="auth-title">Welcome Back</h1>
+      <p class="auth-subtitle">Sign in to continue your journey</p>
+
+      <!-- Login Form -->
+      <form id="loginForm" class="auth-form" novalidate>
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email">
+            <i class="fas fa-envelope"></i>
+            Email Address
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="you@example.com"
+            required
+            autocomplete="email"
+          />
+          <span class="error-message" id="emailError"></span>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label for="password">
+            <i class="fas fa-lock"></i>
+            Password
+          </label>
+          <div class="password-input-wrapper">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+              required
+              autocomplete="current-password"
+              minlength="6"
+            />
+            <button type="button" class="password-toggle" id="passwordToggle" tabindex="-1">
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+          <span class="error-message" id="passwordError"></span>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="btn btn-primary btn-block" id="loginBtn">
+          <span class="btn-text">Sign In</span>
+          <div class="spinner-sm" style="display:none"></div>
+        </button>
+      </form>
+
+      <!-- Divider -->
+      <div class="auth-divider">
+        <span>or</span>
+      </div>
+
+      <!-- CTA -->
+      <p class="auth-cta">
+        Don't have an account?
+        <a href="register.html">Create one</a>
+      </p>
+
+      <a href="index.html" class="back-link">
+        <i class="fas fa-arrow-left"></i> Back to Home
+      </a>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SocialSphere — Connect & Share</title>
+
+  <!-- SEO Meta -->
+  <meta name="description" content="SocialSphere — A dreamy social media platform for connecting and sharing your world." />
+  <meta name="theme-color" content="#FF7EB6" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- ─── Floating Background Orbs ───────────────────────── -->
+  <div class="auth-bg" aria-hidden="true">
+    <div class="auth-circle auth-circle-1"></div>
+    <div class="auth-circle auth-circle-2"></div>
+    <div class="auth-circle auth-circle-3"></div>
+  </div>
+
+  <!-- ─── Navigation ────────────────────────────────────── -->
+  <nav class="navbar glass" id="navbar">
+    <div class="nav-container">
+      <a href="feed.html" class="nav-brand">
+        <div class="logo-icon">
+          <i class="fas fa-globe"></i>
+        </div>
+        <span class="logo-text">SocialSphere</span>
+      </a>
+
+      <div class="nav-search" id="navSearch">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" placeholder="Search SocialSphere..." id="globalSearchInput" />
+      </div>
+
+      <div class="nav-links">
+        <a href="feed.html" class="nav-link" title="Home">
+          <i class="fas fa-home"></i>
+        </a>
+        <a href="create-post.html" class="nav-link" title="Create Post">
+          <i class="fas fa-plus-square"></i>
+        </a>
+        <a href="explore.html" class="nav-link" title="Explore">
+          <i class="fas fa-compass"></i>
+        </a>
+        <a href="notifications.html" class="nav-link notification-bell" title="Notifications">
+          <i class="fas fa-bell"></i>
+          <span class="badge" id="notifBadge" style="display:none">0</span>
+        </a>
+        <a href="profile.html" class="nav-link nav-avatar-link" title="Profile">
+          <img src="https://ui-avatars.com/api/?name=User&background=FF7EB6&color=fff&size=32" alt="Profile" class="nav-avatar" id="navAvatar" />
+        </a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Search -->
+    <div class="mobile-search" id="mobileSearch">
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="Search..." id="mobileSearchInput" />
+    </div>
+  </nav>
+
+  <!-- ─── Hero Section ──────────────────────────────────── -->
+  <section class="hero" id="heroSection">
+    <div class="hero-bg">
+      <div class="hero-gradient"></div>
+    </div>
+
+    <div class="hero-content glass-card">
+      <div class="hero-badge">
+        <i class="fas fa-sparkles"></i>
+        Welcome to the Dreamiest Social
+      </div>
+      <h1 class="hero-title">
+        Where <span class="gradient-text">Connections</span><br />
+        Blossom Beautifully
+      </h1>
+      <p class="hero-subtitle">
+        SocialSphere brings people together through dreamy, meaningful interactions.
+        Share your story, discover new perspectives, and build your community.
+      </p>
+
+      <div class="hero-actions">
+        <a href="register.html" class="btn btn-primary btn-lg glass">
+          <i class="fas fa-rocket"></i>
+          Get Started Free
+        </a>
+        <a href="login.html" class="btn btn-outline btn-lg">
+          <i class="fas fa-sign-in-alt"></i>
+          Sign In
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">10K+</span>
+          <span class="stat-label">Active Users</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">50K+</span>
+          <span class="stat-label">Daily Posts</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">100K+</span>
+          <span class="stat-label">Connections</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Features Section ───────────────────────────────── -->
+  <section class="features">
+    <h2 class="section-title">Everything You Need</h2>
+    <p class="section-subtitle">Dreamy features designed for meaningful connections</p>
+
+    <div class="features-grid">
+      <div class="feature-card glass-card">
+        <div class="feature-icon">
+          <i class="fas fa-images"></i>
+        </div>
+        <h3>Stunning Posts</h3>
+        <p>Share photos and stories with beautiful formatting and image support.</p>
+      </div>
+
+      <div class="feature-card glass-card">
+        <div class="feature-icon">
+          <i class="fas fa-heart"></i>
+        </div>
+        <h3>Engage & Interact</h3>
+        <p>Like, comment, and share posts. Build conversations that matter.</p>
+      </div>
+
+      <div class="feature-card glass-card">
+        <div class="feature-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <h3>Build Community</h3>
+        <p>Follow users, grow your network, and discover new voices every day.</p>
+      </div>
+
+      <div class="feature-card glass-card">
+        <div class="feature-icon">
+          <i class="fas fa-bell"></i>
+        </div>
+        <h3>Smart Notifications</h3>
+        <p>Stay updated with real-time notifications for everything that matters.</p>
+      </div>
+
+      <div class="feature-card glass-card">
+        <div class="feature-icon">
+          <i class="fas fa-hashtag"></i>
+        </div>
+        <h3>Trending Topics</h3>
+        <p>Discover trending hashtags and join the global conversation.</p>
+      </div>
+
+      <div class="feature-card glass-card">
+        <div class="feature-icon">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h3>Secure & Private</h3>
+        <p>Your data is protected with enterprise-grade security and encryption.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Footer ─────────────────────────────────────────── -->
+  <footer class="footer glass">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="logo-icon">
+          <i class="fas fa-globe"></i>
+        </div>
+        <span class="logo-text">SocialSphere</span>
+      </div>
+      <p class="footer-text">Connect. Share. Inspire. &copy; 2024 SocialSphere. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─── Scripts ────────────────────────────────────────── -->
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

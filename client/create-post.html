@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Post — SocialSphere</title>
+  <meta name="theme-color" content="#FF7EB6" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/feed.css" />
+</head>
+<body>
+  <!-- ─── Navigation ────────────────────────────────────── -->
+  <nav class="navbar glass" id="navbar">
+    <div class="nav-container">
+      <a href="feed.html" class="nav-brand">
+        <div class="logo-icon">
+          <i class="fas fa-globe"></i>
+        </div>
+        <span class="logo-text">SocialSphere</span>
+      </a>
+
+      <div class="nav-search" id="navSearch">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" placeholder="Search SocialSphere..." id="globalSearchInput" />
+      </div>
+
+      <div class="nav-links">
+        <a href="feed.html" class="nav-link" title="Home">
+          <i class="fas fa-home"></i>
+        </a>
+        <a href="create-post.html" class="nav-link active" title="Create Post">
+          <i class="fas fa-plus-square"></i>
+        </a>
+        <a href="explore.html" class="nav-link" title="Explore">
+          <i class="fas fa-compass"></i>
+        </a>
+        <a href="notifications.html" class="nav-link notification-bell" title="Notifications">
+          <i class="fas fa-bell"></i>
+          <span class="badge" id="notifBadge" style="display:none">0</span>
+        </a>
+        <a href="profile.html" class="nav-link nav-avatar-link" title="Profile">
+          <img src="https://ui-avatars.com/api/?name=User&background=FF7EB6&color=fff&size=32" alt="Profile" class="nav-avatar" id="navAvatar" />
+        </a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="nav-link" id="logoutBtn" title="Logout">
+          <i class="fas fa-sign-out-alt"></i>
+        </button>
+      </div>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ─── Create Post Content ───────────────────────────── -->
+  <div class="create-post-container">
+    <div class="create-post-card glass-card">
+      <div class="create-post-header">
+        <h2><i class="fas fa-pen-fancy"></i> Create Post</h2>
+        <p>Share your thoughts, photos, and moments with the world</p>
+      </div>
+
+      <form id="createPostForm" novalidate>
+        <!-- Image Upload -->
+        <div class="post-image-upload" id="postImageUpload">
+          <div class="upload-placeholder" id="uploadPlaceholder">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <span>Click to upload an image</span>
+            <span class="upload-hint">JPG, PNG, GIF, WebP up to 5MB</span>
+          </div>
+          <div class="upload-preview" id="uploadPreview" style="display:none">
+            <img id="previewImage" alt="Preview" />
+            <button type="button" class="remove-image-btn" id="removeImageBtn">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <input type="file" id="postImageInput" accept="image/*" hidden />
+        </div>
+
+        <!-- Caption -->
+        <div class="form-group">
+          <label for="caption">
+            <i class="fas fa-quote-left"></i>
+            Caption
+          </label>
+          <textarea
+            id="caption"
+            name="caption"
+            rows="4"
+            placeholder="What's on your mind? Use #hashtags to reach more people..."
+            maxlength="2200"
+          ></textarea>
+          <div class="caption-footer">
+            <span class="char-count"><span id="captionCount">0</span>/2200</span>
+            <span class="hashtag-hint">
+              <i class="fas fa-hashtag"></i> Hashtags are auto-detected
+            </span>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="create-post-actions">
+          <button type="submit" class="btn btn-primary btn-lg" id="createPostBtn">
+            <span class="btn-text"><i class="fas fa-paper-plane"></i> Share Post</span>
+            <div class="spinner-sm" style="display:none"></div>
+          </button>
+          <a href="feed.html" class="btn btn-outline">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ─── Toast Container ────────────────────────────────── -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/create-post.js"></script>
+</body>
+</html>
