@@ -115,7 +115,7 @@ const createPost = async (req, res, next) => {
     };
 
     if (req.file) {
-      postData.image = `/uploads/${req.file.filename}`;
+      postData.image = req.file.path;
     }
 
     const post = await Post.create(postData);
@@ -164,7 +164,7 @@ const updatePost = async (req, res, next) => {
 
     // If a new image was uploaded
     if (req.file) {
-      post.image = `/uploads/${req.file.filename}`;
+      post.image = req.file.path;
     }
 
     await post.save();

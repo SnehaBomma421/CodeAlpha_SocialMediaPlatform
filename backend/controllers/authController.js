@@ -63,7 +63,7 @@ const register = async (req, res, next) => {
 
     // If avatar was uploaded, set it
     if (req.file) {
-      user.avatar = `/uploads/${req.file.filename}`;
+      user.avatar = req.file.path;
     }
 
     await user.save();

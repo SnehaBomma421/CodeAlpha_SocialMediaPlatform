@@ -65,7 +65,7 @@ const updateProfile = async (req, res, next) => {
 
     // If avatar uploaded
     if (req.file) {
-      updateFields.avatar = `/uploads/${req.file.filename}`;
+      updateFields.avatar = req.file.path;
     }
 
     const user = await User.findByIdAndUpdate(

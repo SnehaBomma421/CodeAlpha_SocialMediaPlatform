@@ -35,9 +35,6 @@ if (process.env.NODE_ENV !== 'test') {
 }
 
 // ─── Static files ───────────────────────────────────────────
-// Serve uploaded files
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
 // Serve frontend client files
 app.use(express.static(path.join(__dirname, '..', 'client')));
 

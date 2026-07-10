@@ -1,20 +1,21 @@
 const multer = require('multer');
-const path = require('path');
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+const cloudinary = require('../config/cloudinary');
 const { AppError } = require('./errorHandler');
 
 /**
- * Multer storage configuration
- * Saves uploaded files to the uploads directory with unique filenames
+ * Multer storage configuration using Cloudinary
+ *
+ * Instead of saving files to a local uploads folder (which breaks on
+ * Render/Heroku because those files don't persist), images are uploaded
+ * directly to Cloudinary. The response stores the Cloudinary secure_url.
  */
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, path.join(__dirname, '..', 'uploads'));
-  },
-  filename: (req, file, cb) => {
-    // Generate unique filename: timestamp-random-original extension
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
-    const ext = path.extname(file.originalname);
-    cb(null, `${uniqueSuffix}${ext}`);
+const storage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: 'socialsphere',
+    allowed_formats: ['jpeg', 'jpg', 'png', 'gif', 'webp'],
+    transformation: [{ quality: 'auto', fetch_format: 'auto' }],
   },
 });
 

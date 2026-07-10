@@ -4,9 +4,7 @@ node_modules/
 # Environment variables
 .env
 
-# Uploads
-backend/uploads/*
-!backend/uploads/.gitkeep
+# Uploads (no longer used — images now stored on Cloudinary)
 
 # IDE
 .vscode/
