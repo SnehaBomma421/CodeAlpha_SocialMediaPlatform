@@ -53,14 +53,14 @@ const postSchema = new mongoose.Schema(
  * Virtual: Count of likes
  */
 postSchema.virtual('likesCount').get(function () {
-  return this.likes.length;
+  return this.likes ? this.likes.length : 0;
 });
 
 /**
  * Virtual: Count of comments
  */
 postSchema.virtual('commentsCount').get(function () {
-  return this.comments.length;
+  return this.comments ? this.comments.length : 0;
 });
 
 /**

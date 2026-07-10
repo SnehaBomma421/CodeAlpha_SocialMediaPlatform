@@ -233,20 +233,3 @@ function clearErrors() {
   document.querySelectorAll('.input-error').forEach((el) => el.classList.remove('input-error'));
 }
 
-function setButtonLoading(btn, loading) {
-  if (!btn) return;
-  const text = btn.querySelector('.btn-text');
-  const spinner = btn.querySelector('.spinner-sm');
-
-  if (loading) {
-    btn.disabled = true;
-    btn.classList.add('loading');
-    if (text) text.style.opacity = '0.5';
-    if (spinner) spinner.style.display = 'inline-block';
-  } else {
-    btn.disabled = false;
-    btn.classList.remove('loading');
-    if (text) text.style.opacity = '1';
-    if (spinner) spinner.style.display = 'none';
-  }
-}

@@ -71,14 +71,14 @@ const userSchema = new mongoose.Schema(
  * Virtual: Count of followers
  */
 userSchema.virtual('followersCount').get(function () {
-  return this.followers.length;
+  return this.followers ? this.followers.length : 0;
 });
 
 /**
  * Virtual: Count of following
  */
 userSchema.virtual('followingCount').get(function () {
-  return this.following.length;
+  return this.following ? this.following.length : 0;
 });
 
 /**
