@@ -115,7 +115,7 @@ const createPost = async (req, res, next) => {
     };
 
     if (req.file) {
-      postData.image = req.file.path;
+      postData.image = `data:${req.file.mimetype};base64,${req.file.buffer.toString('base64')}`;
     }
 
     const post = await Post.create(postData);
@@ -164,7 +164,7 @@ const updatePost = async (req, res, next) => {
 
     // If a new image was uploaded
     if (req.file) {
-      post.image = req.file.path;
+      post.image = `data:${req.file.mimetype};base64,${req.file.buffer.toString('base64')}`;
     }
 
     await post.save();

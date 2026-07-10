@@ -63,9 +63,9 @@ const updateProfile = async (req, res, next) => {
       updateFields.username = username.toLowerCase();
     }
 
-    // If avatar uploaded
+    // If avatar uploaded, convert buffer to Base64 data URI
     if (req.file) {
-      updateFields.avatar = req.file.path;
+      updateFields.avatar = `data:${req.file.mimetype};base64,${req.file.buffer.toString('base64')}`;
     }
 
     const user = await User.findByIdAndUpdate(

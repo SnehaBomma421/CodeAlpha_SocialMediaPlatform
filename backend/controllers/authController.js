@@ -61,9 +61,9 @@ const register = async (req, res, next) => {
       password,
     });
 
-    // If avatar was uploaded, set it
+    // If avatar was uploaded, convert buffer to Base64 data URI
     if (req.file) {
-      user.avatar = req.file.path;
+      user.avatar = `data:${req.file.mimetype};base64,${req.file.buffer.toString('base64')}`;
     }
 
     await user.save();

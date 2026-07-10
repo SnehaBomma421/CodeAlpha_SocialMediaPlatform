@@ -1,23 +1,13 @@
 const multer = require('multer');
-const { CloudinaryStorage } = require('multer-storage-cloudinary');
-const cloudinary = require('../config/cloudinary');
 const { AppError } = require('./errorHandler');
 
 /**
- * Multer storage configuration using Cloudinary
+ * Multer storage configuration using memory storage
  *
- * Instead of saving files to a local uploads folder (which breaks on
- * Render/Heroku because those files don't persist), images are uploaded
- * directly to Cloudinary. The response stores the Cloudinary secure_url.
+ * Files are stored in memory as Buffer instead of being saved to disk.
+ * The controller converts the buffer to a Base64 data URI and saves it
+ * directly in MongoDB.
  */
-const storage = new CloudinaryStorage({
-  cloudinary,
-  params: {
-    folder: 'socialsphere',
-    allowed_formats: ['jpeg', 'jpg', 'png', 'gif', 'webp'],
-    transformation: [{ quality: 'auto', fetch_format: 'auto' }],
-  },
-});
 
 /**
  * File filter — only allow image files
@@ -35,9 +25,10 @@ const fileFilter = (req, file, cb) => {
 /**
  * Configured multer instance
  * Limits: 5MB file size, single image field named "image"
+ * Uses memoryStorage so req.file.buffer is available for Base64 conversion
  */
 const upload = multer({
-  storage,
+  storage: multer.memoryStorage(),
   fileFilter,
   limits: {
     fileSize: parseInt(process.env.MAX_FILE_SIZE) || 5 * 1024 * 1024, // 5MB

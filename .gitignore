@@ -4,7 +4,7 @@ node_modules/
 # Environment variables
 .env
 
-# Uploads (no longer used — images now stored on Cloudinary)
+# Uploads (no longer used — images now stored as Base64 in MongoDB)
 
 # IDE
 .vscode/
